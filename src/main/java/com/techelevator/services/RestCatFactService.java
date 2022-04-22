@@ -23,13 +23,15 @@ public class RestCatFactService implements CatFactService {
 		try {
 			catFact = restTemplate.getForObject(API_URL, CatFact.class);
 		} catch (RestClientResponseException | ResourceAccessException e){
-			System.out.println(e.getStackTrace());
+			e.printStackTrace();
+		} catch (NullPointerException e){
+			e.printStackTrace();
 		}
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.setContentType(MediaType.APPLICATION_JSON);
-//		HttpEntity <CatFact> entity = new HttpEntity<>(newCatFact, headers);
 		return catFact;
 	}
 
 
+	//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+//		HttpEntity <CatFact> entity = new HttpEntity<>(newCatFact, headers);
 }
