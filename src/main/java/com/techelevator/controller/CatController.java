@@ -47,6 +47,14 @@ public class CatController {
         return catCardDao.save(catCard);
     }
 
-    
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public boolean updateCard(@RequestBody CatCard catCard, @PathVariable long id) {
+        return catCardDao.update(id, catCard);
 
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    public boolean removeCard(@PathVariable long id) {
+     return catCardDao.delete(id);
+    }
 }

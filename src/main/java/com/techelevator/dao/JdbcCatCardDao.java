@@ -67,7 +67,7 @@ public class JdbcCatCardDao implements CatCardDao {
 		return jdbcTemplate.update(sql,card.getImgUrl(),card.getCatFact(),card.getCaption()) == 1;
 	}
 
-	private boolean exists(long id) {
+	public boolean exists(long id) {
 		return jdbcTemplate.queryForObject("select * from catcards where id = ?", new Object[]{id}, boolean.class);
 	}
 	
