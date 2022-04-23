@@ -50,7 +50,6 @@ public class CatController {
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public boolean updateCard(@RequestBody CatCard catCard, @PathVariable long id) {
         return catCardDao.update(id, catCard);
-
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
